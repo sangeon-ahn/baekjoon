@@ -1,5 +1,5 @@
 // M 이상 N 이하의 소수를 모두 출력하는 프로그램을 작성하시오.
-const [M, N] = [3, 30];
+const [M, N] = [3, 3];
 const obj = {};
 const checked = {};
 
@@ -27,12 +27,16 @@ function findDecimal() {
       index++;
     }
   }
+
+  for (const num in obj) {
+    if (obj[num]) {
+      console.log(num);
+    }
+  }
+
+  return;
 }
 
 findDecimal();
 
-for (const num in obj) {
-  if (obj[num]) {
-    console.log(num);
-  }
-}
+
