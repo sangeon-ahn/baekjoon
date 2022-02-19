@@ -1,34 +1,35 @@
-// let fs = require('fs');
-// let input = fs.readFileSync('예제.txt').toString().trim().split('\n');
+let fs = require('fs');
+let input = fs.readFileSync('예제.txt').toString().trim().split('\n');
 
-// const [n, ...arr] = input;
+const [n, ...arr] = input;
 
-// const amounts = arr.map(Number);
+const amounts = arr.map(Number);
 
-// let max = -100;
+let max = -100;
 
-// console.log(n, amounts);
+console.log(n, amounts);
 
-// function dfs(n, amount, consec) {
-//   console.log(amount);
-//   if (n >= amounts.length) {
-//     // console.log(amount);
-//     max = Math.max(max, amount);
+// 풀이 실패
+function dfs(n, amount, consec) {
+  console.log(amount);
+  if (n >= amounts.length) {
+    // console.log(amount);
+    max = Math.max(max, amount);
 
-//     return;
-//   }
+    return;
+  }
 
-//   if (consec >= 2 && n + 1 < amounts.length - 2) {
-//     dfs(n + 2, amount + amounts[n + 1], 1);
-//   } else {
-//     dfs(n + 1, amount + amounts[n], consec + 1);
-//     // dfs(n + 2, amount + amounts[n], 0);
-//   }
-// }
+  if (consec >= 2 && n + 1 < amounts.length - 2) {
+    dfs(n + 2, amount + amounts[n + 1], 1);
+  } else {
+    dfs(n + 1, amount + amounts[n], consec + 1);
+    // dfs(n + 2, amount + amounts[n], 0);
+  }
+}
 
+// 예시 풀이
 // dp로 푸는 문제다.
 // dp는 아직 제대로 공부가 안된 상태
-
 let fs = require('fs');
 let wine = fs.readFileSync('예제.txt').toString().split('\n').map(Number);
 const number = wine[0];
