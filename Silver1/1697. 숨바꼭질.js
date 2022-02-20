@@ -5,33 +5,33 @@ const [N, K] = input.map(num => +num);
 
 let smallestCount = Infinity;
 
-// function dfs(position, count) {
-//   if (N >= K) {
-//     return K - N;
-//   }
+function dfs(position, count) {
+  if (N >= K) {
+    return K - N;
+  }
 
-//   if (count > 100) {
-//     return;
-//   }
+  if (count > 100) {
+    return;
+  }
 
-//   if (count >= smallestCount) {
-//     return;
-//   }
+  if (count >= smallestCount) {
+    return;
+  }
 
-//   if (position < 0) {
-//     return;
-//   }
+  if (position < 0) {
+    return;
+  }
 
-//   if (position === K) {
-//     smallestCount = Math.min(smallestCount, count);
+  if (position === K) {
+    smallestCount = Math.min(smallestCount, count);
 
-//     return;
-//   }
+    return;
+  }
 
-//   dfs(position - 1, count++);
-//   dfs(position + 1, count++);
-//   dfs(2 * position, count++);
-// }
+  dfs(position - 1, count++);
+  dfs(position + 1, count++);
+  dfs(2 * position, count++);
+}
 
 // dfs(N, 0);
 
